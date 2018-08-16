@@ -1,1 +1,1 @@
-export const MY_CONSTANT = 'MY_CONSTANT';
+export const OPEN_DRAWER = 'OPEN_DRAWER';
