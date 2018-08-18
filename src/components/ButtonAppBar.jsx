@@ -7,7 +7,6 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import { OPEN_DRAWER } from '../actions';
 
 // const styles = theme => ({
 //   root: {
@@ -68,11 +67,5 @@ class ButtonAppBar extends React.Component {
 ButtonAppBar.propTypes = {
 	classes: PropTypes.object.isRequired,
 };
-
-function mapStateToProps(state) {
-  return {
-    rootReducer: state
-  }
-}
 
 export default withStyles(styles)(ButtonAppBar);

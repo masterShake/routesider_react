@@ -1,8 +1,8 @@
-import { OPEN_DRAWER } from '../constants'
+import { MY_CONSTANT } from './constants'
 
-export const openDrawer = (payload) => {
+export const MY_CONSTANT = (payload) => {
 	const action = {
-		type : OPEN_DRAWER,
+		type : MY_CONSTANT,
 		payload
 	}
 	return action;
