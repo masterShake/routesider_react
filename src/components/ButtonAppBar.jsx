@@ -45,7 +45,7 @@ class ButtonAppBar extends React.Component {
 
 
 	openDrawer(){
-		this.props.openDrawer()
+		console.log(this.props)
 	}
 	
 	render(){
@@ -54,7 +54,7 @@ class ButtonAppBar extends React.Component {
 			<div className={classes.root}>
 				<AppBar position="static">
 					<Toolbar>
-						<IconButton className={classes.menuButton} onClick={() => this.props.openDrawer()} color="inherit" aria-label="Menu">
+						<IconButton className={classes.menuButton} onClick={() => this.openDrawer()} color="inherit" aria-label="Menu">
 							<MenuIcon />
 						</IconButton>
 					</Toolbar>
