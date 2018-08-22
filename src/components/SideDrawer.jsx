@@ -2,17 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
-import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
+import MapSearchInput from './MapSearchInput.jsx'
 
-const styles = {
-	list: {
-		width: 250,
+const styles = theme => ({
+	drawerWrap: {
+		zIndex: 900,
 	},
-	fullList: {
-		width: 'auto',
-	},
-};
+	drawer: {
+		maxWidth: 260,
+	}
+});
 
 class SideDrawer extends React.Component{
 
@@ -20,14 +19,13 @@ class SideDrawer extends React.Component{
 	    const { classes } = this.props;
 
 	    return (
-	    	<Drawer anchor="right" open={this.props.drawerOpen} onClose={this.props.openDrawer}>
+	    	<Drawer anchor="right" open={this.props.drawerOpen} onClose={this.props.openDrawer} className={classes.drawerWrap}>
 	         	<div
 		            tabIndex={0}
 		            role="button"
-		            onClick={this.props.openDrawer}
-		            onKeyDown={this.props.openDrawer}
+		            className={classes.drawer}
 	          	>
-	            	menue stuff
+	            	<MapSearchInput />
 	          	</div>
 	        </Drawer>
 	    );

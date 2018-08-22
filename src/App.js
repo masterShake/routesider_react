@@ -21,8 +21,6 @@ class App extends Component {
 		const drawerOpen = this.state.drawerOpen ? false : true
 
 		this.setState({ drawerOpen })
-
-		console.log(this.state)
 	}
 
 	render() {
