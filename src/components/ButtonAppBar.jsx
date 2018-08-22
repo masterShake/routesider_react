@@ -43,9 +43,8 @@ const styles = theme => ({
 
 class ButtonAppBar extends React.Component {
 
-
-	openDrawer(){
-		console.log(this.props)
+	constructor(props){
+		super(props);
 	}
 	
 	render(){
@@ -54,7 +53,7 @@ class ButtonAppBar extends React.Component {
 			<div className={classes.root}>
 				<AppBar position="static">
 					<Toolbar>
-						<IconButton className={classes.menuButton} onClick={() => this.openDrawer()} color="inherit" aria-label="Menu">
+						<IconButton className={classes.menuButton} onClick={this.props.openDrawer} color="inherit" aria-label="Menu">
 							<MenuIcon />
 						</IconButton>
 					</Toolbar>
