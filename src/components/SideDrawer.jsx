@@ -3,6 +3,13 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import MapSearchInput from './MapSearchInput.jsx'
+import Divider from '@material-ui/core/Divider'
+import List from '@material-ui/core/List'
+import ListItem from '@material-ui/core/ListItem'
+import ListItemText from '@material-ui/core/ListItemText'
+import Map from '@material-ui/icons/Map'
+import GetApp from '@material-ui/icons/GetApp'
+import AccountCircle from '@material-ui/icons/AccountCircle';
 
 const styles = theme => ({
 	drawerWrap: {
@@ -10,7 +17,13 @@ const styles = theme => ({
 	},
 	drawer: {
 		maxWidth: 260,
-	}
+	},
+	listroot: {
+		paddingLeft: 12,
+	    width: '100%',
+	    maxWidth: '260px',
+	    backgroundColor: theme.palette.background.paper,
+  	}
 });
 
 class SideDrawer extends React.Component{
@@ -26,6 +39,23 @@ class SideDrawer extends React.Component{
 		            className={classes.drawer}
 	          	>
 	            	<MapSearchInput />
+	            	<div className={classes.listroot}>
+			        	<List component="nav">
+							<ListItem button>
+								<Map />
+								<ListItemText primary="Map Builder" />
+							</ListItem>
+							<Divider />
+							<ListItem button divider>
+								<GetApp />
+								<ListItemText primary="Installation" />
+							</ListItem>
+							<ListItem button>
+								<AccountCircle />
+								<ListItemText primary="Resume" />
+							</ListItem>
+			      		</List>
+			      	</div>
 	          	</div>
 	        </Drawer>
 	    );

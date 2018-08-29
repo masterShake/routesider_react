@@ -1,10 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
-import Input from '@material-ui/core/Input'
-import InputLabel from '@material-ui/core/InputLabel'
-import InputAdornment from '@material-ui/core/InputAdornment'
-import FormControl from '@material-ui/core/FormControl'
 import TextField from '@material-ui/core/TextField'
 import Grid from '@material-ui/core/Grid'
 import Search from '@material-ui/icons/Search'
@@ -20,20 +16,10 @@ const styles = theme => ({
 	container: {
 	    display: 'flex',
 	    flexWrap: 'wrap',
-	},
-	listroot: {
-		paddingLeft: 12,
-	    width: '100%',
-	    maxWidth: '260px',
-	    backgroundColor: theme.palette.background.paper,
-  	}
+	}
 })
 
 class MapSearchInput extends React.Component{
-
-	constructor(props){
-		super(props);
-	}
 
   	componentDidMount(){
 
@@ -55,23 +41,6 @@ class MapSearchInput extends React.Component{
 	          		</Grid>
 	        	</Grid>
 	        	<Divider />
-	        	<div className={classes.listroot}>
-		        	<List component="nav">
-						<ListItem button>
-							<Map />
-							<ListItemText primary="Map Builder" />
-						</ListItem>
-						<Divider />
-						<ListItem button divider>
-							<GetApp />
-							<ListItemText primary="Installation" />
-						</ListItem>
-						<ListItem button>
-							<AccountCircle />
-							<ListItemText primary="Resume" />
-						</ListItem>
-		      		</List>
-		      	</div>
 	      	</form>
 	  	)
 	}

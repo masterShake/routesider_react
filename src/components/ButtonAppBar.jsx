@@ -3,25 +3,10 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-
-// const styles = theme => ({
-//   root: {
-//     padding: theme.spacing.unit,
-//     [theme.breakpoints.down('sm')]: {
-//       backgroundColor: theme.palette.secondary.main,
-//     },
-//     [theme.breakpoints.up('md')]: {
-//       backgroundColor: theme.palette.primary.main,
-//     },
-//     [theme.breakpoints.up('lg')]: {
-//       backgroundColor: green[500],
-//     },
-//   },
-// });
+import Button from '@material-ui/core/Button';
+import MapSearchInput from './MapSearchInput.jsx'
 
 const styles = theme => ({
 	root: {
@@ -32,12 +17,26 @@ const styles = theme => ({
 			top: 12
 		}
 	},
-	flex: {
-		flexGrow: 1,
+	toolbar: {
+		[theme.breakpoints.between('xs','md')]: {
+			minHeight: 56,
+			paddingLeft: 16,
+			paddingRight: 16
+		},
+		[theme.breakpoints.up('md')]: {
+			minHeight: 64,
+			paddingLeft: 24,
+			paddingRight: 24,
+			display: 'flex',
+			justifyContent: 'flex-end'
+		}
 	},
 	menuButton: {
 		marginLeft: -12,
 		marginRight: 20,
+		[theme.breakpoints.up('md')]: {
+			display: 'none'
+		}
 	},
 });
 
@@ -48,10 +47,14 @@ class ButtonAppBar extends React.Component {
 		return (
 			<div className={classes.root}>
 				<AppBar position="static">
-					<Toolbar>
+					<Toolbar className={classes.toolbar}>
 						<IconButton className={classes.menuButton} onClick={this.props.openDrawer} color="inherit" aria-label="Menu">
 							<MenuIcon />
 						</IconButton>
+						<Button className={classes.button}>Map Builder</Button>
+						<Button className={classes.button}>Installation</Button>
+						<Button className={classes.button}>Resume</Button>
+						<MapSearchInput />
 					</Toolbar>
 				</AppBar>
 			</div>
