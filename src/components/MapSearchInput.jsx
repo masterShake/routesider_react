@@ -5,19 +5,13 @@ import TextField from '@material-ui/core/TextField'
 import Grid from '@material-ui/core/Grid'
 import Search from '@material-ui/icons/Search'
 import Divider from '@material-ui/core/Divider'
-import List from '@material-ui/core/List'
-import ListItem from '@material-ui/core/ListItem'
-import ListItemText from '@material-ui/core/ListItemText'
-import Map from '@material-ui/icons/Map'
-import GetApp from '@material-ui/icons/GetApp'
-import AccountCircle from '@material-ui/icons/AccountCircle';
 
-const styles = theme => ({
+const styles = {
 	container: {
 	    display: 'flex',
 	    flexWrap: 'wrap',
 	}
-})
+}
 
 class MapSearchInput extends React.Component{
 

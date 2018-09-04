@@ -6,6 +6,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import Button from '@material-ui/core/Button';
+import Hidden from '@material-ui/core/Hidden';
 import MapSearchInput from './MapSearchInput.jsx'
 
 const styles = theme => ({
@@ -15,6 +16,10 @@ const styles = theme => ({
 			position: "absolute",
 			right: 12,
 			top: 12
+		},
+		[theme.breakpoints.up('md')]: {
+			position: "absolute",
+			right: '6%'
 		}
 	},
 	toolbar: {
@@ -34,9 +39,9 @@ const styles = theme => ({
 	menuButton: {
 		marginLeft: -12,
 		marginRight: 20,
-		[theme.breakpoints.up('md')]: {
-			display: 'none'
-		}
+		// [theme.breakpoints.up('md')]: {
+		// 	display: 'none'
+		// }
 	},
 });
 
@@ -48,13 +53,17 @@ class ButtonAppBar extends React.Component {
 			<div className={classes.root}>
 				<AppBar position="static">
 					<Toolbar className={classes.toolbar}>
-						<IconButton className={classes.menuButton} onClick={this.props.openDrawer} color="inherit" aria-label="Menu">
-							<MenuIcon />
-						</IconButton>
-						<Button className={classes.button}>Map Builder</Button>
-						<Button className={classes.button}>Installation</Button>
-						<Button className={classes.button}>Resume</Button>
-						<MapSearchInput />
+						<Hidden mdUp>
+							<IconButton className={classes.menuButton} onClick={this.props.openDrawer} color="inherit" aria-label="Menu">
+								<MenuIcon />
+							</IconButton>
+						</Hidden>
+						<Hidden smDown>
+							<Button className={classes.button}>Map Builder</Button>
+							<Button className={classes.button}>Installation</Button>
+							<Button className={classes.button}>Resume</Button>
+							<MapSearchInput />
+						</Hidden>
 					</Toolbar>
 				</AppBar>
 			</div>
