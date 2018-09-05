@@ -33,7 +33,7 @@ class MapBuilder extends React.Component {
 
 		return (
 			<BottomNavigation value={value} onChange={this.handleChange} className={classes.root}>
-				<Popover />
+				<Popover title="Drop Pin" />
 				<BottomNavigationAction label="Drop Pin" value="pin" icon={<LocationOnIcon />} />
 				<BottomNavigationAction label="Draw Polygon" value="polygon" icon={<Icon>category</Icon>} />
 				<BottomNavigationAction label="Frame View" value="frame" icon={<Icon>zoom_out_map</Icon>} />

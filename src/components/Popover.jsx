@@ -5,10 +5,13 @@ import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
+import Icon from '@material-ui/core/Icon';
+import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
 import '../style/App.css';
 
-const styles = {
+const styles = theme => ({
 	card: {
 		minWidth: 275,
 		position: 'absolute',
@@ -16,37 +19,20 @@ const styles = {
 		left: 0,
 		overflow: 'visible'
 	},
-	// arrowDown: {
-	// 	width: 0, 
-	// 	height: 0, 
-	// 	borderLeft: '12px solid transparent',
-	// 	borderRight: '12px solid transparent',
-	// 	borderTop: '12px solid #fff',
-	// 	position: 'absolute'
-	// },
-	// triangle: {
-	// 	position: 'relative',
-	// 	margin: 20,
-	// 	padding: 10,
-	// 	boxSizing: 'border-box',
-	// 	background: '#bada55',
-	// 	boxShadow: '0px 3px 3px 0 rgba(0, 0, 0, 0.4)',
-	// 	'&:after': {
-	// 	    content: "",
-	// 	    position: 'absolute',
-	// 	    width: 0,
-	// 	    height: 0,
-	// 	    marginLeft: -5,
-	// 	    bottom: -20,
-	// 	    left: '50%',
-	// 	    boxSizing: 'border-box',
-	// 	    border: '1em solid black',
-	// 	    borderColor: 'transparent transparent #bada55 #bada55',
-	// 	    transformOrigin: '0 0',
-	// 	    transform: 'rotate(-45deg)',
-	// 	    boxShadow: '-3px 3px 3px 0 rgba(0, 0, 0, 0.4)'
-	// 	}
- //  	},
+	header: {
+		flexGrow: 1,
+		textAlign: 'center'
+	},
+	ptitle: {
+		display: 'table-cell',
+		margin: 'auto',
+		verticalAlign: 'middle'
+	},
+	button: {
+	    margin: theme.spacing.unit,
+	    height: 30,
+	    width: 30
+	},
 	bullet: {
 		display: 'inline-block',
 		margin: '0 2px',
@@ -59,40 +45,60 @@ const styles = {
 	pos: {
 		marginBottom: 12,
 	},
-};
+});
 
-function Popover(props) {
-	const { classes } = props;
-	const bull = <span className={classes.bullet}>•</span>;
+class Popover extends React.Component{
 
-	return (
-		<Card className={classes.card}>
-			<CardContent>
-				<Typography className={classes.title} color="textSecondary">
-					Word of the Day
-				</Typography>
-				<Typography variant="headline" component="h2">
-					be
-					{bull}
-					nev
-					{bull}o{bull}
-					lent
-				</Typography>
-				<Typography className={classes.pos} color="textSecondary">
-					adjective
-				</Typography>
-				<Typography component="p">
-					well meaning and kindly.
-					<br />
-					{'"a benevolent smile"'}
-				</Typography>
-			</CardContent>
-			<CardActions>
-				<Button size="small">Learn More</Button>
-			</CardActions>
-			<div className="triangle"></div>
-		</Card>
-	);
+	render(){
+		const { classes } = this.props;
+		const bull = <span className={classes.bullet}>•</span>;
+
+		return (
+			<Card className={classes.card}>
+				<div className={classes.header}>
+					<Grid container spacing={0}>
+						<Grid item xs={2}>
+							<IconButton className={classes.button} aria-label="Close">
+					        	<Icon>close</Icon>
+					      	</IconButton>
+						</Grid>
+						<Grid item xs={8} className={classes.ptitle}>
+							{this.props.title}
+						</Grid>
+						<Grid item xs={2}>
+							<IconButton className={classes.button} aria-label="Contract">
+					        	<Icon>expand_more</Icon>
+					      	</IconButton>
+						</Grid>
+					</Grid>
+				</div>
+				<CardContent>
+					<Typography className={classes.title} color="textSecondary">
+						Word of the Day
+					</Typography>
+					<Typography variant="headline" component="h2">
+						be
+						{bull}
+						nev
+						{bull}o{bull}
+						lent
+					</Typography>
+					<Typography className={classes.pos} color="textSecondary">
+						adjective
+					</Typography>
+					<Typography component="p">
+						well meaning and kindly.
+						<br />
+						{'"a benevolent smile"'}
+					</Typography>
+				</CardContent>
+				<CardActions>
+					<Button size="small">Learn More</Button>
+				</CardActions>
+				<div className="triangle"></div>
+			</Card>
+		);
+	}
 }
 
 Popover.propTypes = {
